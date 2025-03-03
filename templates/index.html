@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire avec Flask et Tailwind</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 class="text-2xl font-semibold text-center text-gray-700 mb-6">Formulaire d'inscription</h1>
+
+        <form action="#" method="POST" class="space-y-6">
+            <div class="flex flex-col">
+                <label for="nom" class="text-sm text-gray-600">Nom</label>
+                <input type="text" id="nom" name="nom" required class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Entrez votre nom" pattern="[A-Za-zÀ-ÿ]+([ '-][A-Za-zÀ-ÿ]+)*" title="Le nom doit contenir des lettres uniquement" aria-describedby="nom-help">
+                <small id="nom-help" class="text-xs text-red-500 hidden">Le nom ne doit contenir que des lettres, espaces, apostrophes ou tirets.</small>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="prenom" class="text-sm text-gray-600">Prénom</label>
+                <input type="text" id="prenom" name="prenom" required class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Entrez votre prénom" pattern="[A-Za-zÀ-ÿ]+([ '-][A-Za-zÀ-ÿ]+)*" title="Le prénom doit contenir des lettres uniquement" aria-describedby="prenom-help">
+                <small id="prenom-help" class="text-xs text-red-500 hidden">Le prénom ne doit contenir que des lettres, espaces, apostrophes ou tirets.</small>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="ville" class="text-sm text-gray-600">Ville</label>
+                <input type="text" id="ville" name="ville" required class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Entrez votre ville" pattern="[A-Za-zÀ-ÿ]+([ '-][A-Za-zÀ-ÿ]+)*" title="La ville doit contenir des lettres uniquement" aria-describedby="ville-help">
+                <small id="ville-help" class="text-xs text-red-500 hidden">La ville ne doit contenir que des lettres, espaces, apostrophes ou tirets.</small>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="email" class="text-sm text-gray-600">Email</label>
+                <input type="email" id="email" name="email" required class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Entrez votre email" aria-describedby="email-help">
+                <small id="email-help" class="text-xs text-red-500 hidden">Veuillez entrer une adresse email valide.</small>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="telephone" class="text-sm text-gray-600">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" required class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Entrez votre téléphone" pattern="^[0-9]{10}$" title="Le téléphone doit contenir 10 chiffres" aria-describedby="telephone-help">
+                <small id="telephone-help" class="text-xs text-red-500 hidden">Le numéro de téléphone doit contenir exactement 10 chiffres.</small>
+            </div>
+
+            <div class="flex justify-center">
+                <button type="submit" class="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">Envoyer</button>
+            </div>
+        </form>
+
+        <!-- Ajouter un bouton pour afficher les utilisateurs inscrits -->
+        <div class="flex justify-center mt-6">
+            <a href="{{ url_for('afficher_utilisateurs') }}" class="py-3 px-6 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-300">Afficher utilisateurs</a>
+        </div>
+    </div>
+
+</body>
+</html>
